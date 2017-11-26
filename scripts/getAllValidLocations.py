@@ -1,7 +1,7 @@
 import requests
 import re
 
-for locationKey in range(0,9999):
+for locationKey in range(0,999999):
     try:
         response = requests.get('http://api.surfline.com/v1/forecasts/'+str(locationKey)+'?resources=surf,analysis&days=1&getAllSpots=false&units=e&interpolate=false&showOptimal=false',verify=True)
         info = response.json()
