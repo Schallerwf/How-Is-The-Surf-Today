@@ -12,7 +12,7 @@
 103685,Bolsa Chica Overview
 103685,Bolsa Chica Overview
 106914,Eckner Street
-106919,42nd to 46th St., North End
+106919,42nd to 46th St. North End
 106923,Oceanana Pier
 107410,Quiksilver Pro Gold Coast
 107411,Drug Aware Margaret River Pro
@@ -43,7 +43,7 @@
 110784,Southeast Norway
 110785,Belgium
 110786,Netherlands
-111858,Jennette's Pier, Northside
+111858,Jennette's Pier Northside
 112138,Colombia Pacific
 112139,Caribbean Colombia
 112194,Galapagos Islands
@@ -64,9 +64,7 @@
 119182,New Brunswick
 119194,Veracruz
 119349,North Angola
-Error for locationKey 119393
 119412,Namibia
-Error for locationKey 119464
 119811,Malibu First Point
 119813,Sunset Beach
 119814,Tai Long Wan
@@ -175,7 +173,6 @@ Error for locationKey 119464
 2137,Washington
 2138,Oregon
 2139,Humboldt
-Error for locationKey 2140
 2140,Humboldt
 2141,Santa Barbara
 2142,North Los Angeles
@@ -208,9 +205,7 @@ Error for locationKey 2140
 2170,North Devon
 2171,West Ireland
 2172,Panhandle
-Error for locationKey 2173
 2173,Panhandle
-Error for locationKey 2174
 2174,Panhandle
 2175,Northern NSW
 2176,Nagasaki
@@ -225,7 +220,6 @@ Error for locationKey 2174
 2727,Northeast Puerto Rico
 2731,Miyagi
 2732,Okinawa
-Error for locationKey 2733
 2733,Okinawa
 2734,Maldives
 2739,Samoa North
@@ -290,7 +284,6 @@ Error for locationKey 2733
 3237,Kauai South
 3238,Maui West
 3239,Maui South
-Error for locationKey 3240
 3240,Maui South
 3251,Guatemala Pacific
 3253,El Salvador
@@ -324,7 +317,7 @@ Error for locationKey 3240
 4210,Topanga Beach
 4211,Venice Beach
 4217,Seal Beach Overview
-4223,HB Pier, Northside
+4223,HB Pier Northside
 4232,The Wedge
 4233,Salt Creek
 4235,T-Street
@@ -338,8 +331,8 @@ Error for locationKey 3240
 4252,Mission Beach
 4253,Ocean Beach
 4254,Sunset Cliffs
-4255,Imperial Pier, Northside
-4256,Imperial Pier, Southside
+4255,Imperial Pier Northside
+4256,Imperial Pier Southside
 4269,Lincoln Blvd.
 4270,90th St. Rockaways
 4278,Manasquan Inlet
@@ -408,7 +401,7 @@ Error for locationKey 3240
 48605,Fernando de Noronha
 4868,Bolsa Chica State Beach South
 4870,Goldenwest
-4874,HB Pier, Southside
+4874,HB Pier Southside
 4883,Sunset Point
 4900,El Porto
 4901,Manhattan Beach
@@ -430,7 +423,7 @@ Error for locationKey 3240
 5157,16th Ave.
 5176,Hudson Ave.
 5208,Croatan to Pendleton
-5211,83rd to 86th St., North End
+5211,83rd to 86th St. North End
 5229,Frisco Pier
 5230,Cape Hatteras Lighthouse
 5231,Avon Pier
@@ -507,7 +500,7 @@ Error for locationKey 3240
 62361,St. Lucia
 62363,Curacao
 62370,Martinique
-62371,C Street, Wrightsville Beach
+62371,C Street Wrightsville Beach
 6483,Torquay
 6484,Eastern Victoria
 6518,Perth
@@ -630,7 +623,7 @@ Error for locationKey 3240
 92520,Izu
 92721,Darwin
 94737,Bogue Inlet Pier
-95460,Jennette's Pier, Southside
+95460,Jennette's Pier Southside
 95961,Costa Rica Outer Waters
 97935,Uruguay
 99384,Alentejo Portugal
