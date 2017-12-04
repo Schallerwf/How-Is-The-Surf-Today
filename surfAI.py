@@ -67,7 +67,7 @@ def parseSurfData(info, locKey, writeHeader):
     return csvResult
 
 
-with open(currentDirectory + '/txt/validLocationKeysWithGeneralCondition', 'r') as f:
+with open(currentDirectory + '/txt/validLocationKeysWithSurfData', 'r') as f:
     lines = f.readlines()
 
 for line in lines:
@@ -96,6 +96,12 @@ for line in lines:
 
     with open(dataFileName, dataReadMode) as output:
         output.write(data + '\n')    
+
+# For videos, use rewind clip
+# Morro
+# The morro bay cam is on starting 0800 and turns off at 2350
+# Has 4 days back of footage in 10 minute clips
+# http://camrewinds.cdn-surfline.com/morrobaynorthcam/morrobaynorthcam.1300.2017-11-14.mp4
 
 # Morro
 # 4:00pm 11/14 = http://cams.cdn-surfline.com/wsc-west/wc-morrobaynorthcam.stream/media-unpeu06n2_1100.ts 
