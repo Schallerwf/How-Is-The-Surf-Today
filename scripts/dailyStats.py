@@ -1,7 +1,40 @@
 import sys
 import pandas as pd
+import datetime
+
+def safeBlank(s):
+    if pd.isnull(s):
+        return ""
+    return s
+
+# this is actually really hard to do, given 
+# the way surfline builds their links. 
+def linkFromLocKey(locKey):
+    return ""
+
+
+tableHeader = """
+<tr> 
+    <th>Location</th>
+    <th>Minumum Surf</th>
+    <th>Max Surf</th>
+    <th>Condition</th>
+</tr>
+"""
+tableRowTemplate= """
+<tr>
+    <td>{0}</td>
+    <td>{1}</td>
+    <td>{2}</td>
+    <td>{3}</td>
+</tr>
+"""
+
+if len(sys.argv) != 5:
+    print 'python dailyStats.py <daily_data.csv> <loc_to_name.csv> <html_template> <output_dest>'
 
 ratings = ['flat', 'very poor', 'poor', 'poor to fair', 'fair', 'fair to good','good','very good']
+templateReplacements = []
 
 data = pd.read_csv(sys.argv[1])
 locations = pd.read_csv(sys.argv[2], header=None, names=['locKey', 'names'])
@@ -12,10 +45,33 @@ dailyMaxLocationName = locations.loc[locations['locKey'] == dailyMaxLocKey]['nam
 dailySurfMinMean = data['surfMin'].mean()
 dailySurfMaxMean = data['surfMax'].mean()
 
-print 'Today\'s biggest surf is in {0} with a surf range of {1} to {2} feet.'.format(dailyMaxLocationName, dailySurfMax['surfMin'].values[0], dailySurfMax['surfMax'].values[0])
-print 'Today\'s average surf range is {0:0.2f} to {1:0.2f} feet.'.format(dailySurfMinMean, dailySurfMaxMean)
+templateReplacements.append(datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+templateReplacements.append(dailyMaxLocationName)
+templateReplacements.append(linkFromLocKey(dailyMaxLocKey))
+templateReplacements.append(dailySurfMax['surfMin'].values[0])
+templateReplacements.append(dailySurfMax['surfMax'].values[0])
+templateReplacements.append('{0:0.2f}'.format(dailySurfMinMean))
+templateReplacements.append('{0:0.2f}'.format(dailySurfMaxMean))
 
-todaysConditions = 'Today, around the world their are\n'
 for rating in ratings:
-    todaysConditions += '{0}\t{1} surf breaks.\n'.format(len(data[data['generalCondition'] == rating]), rating)
-print todaysConditions
+    templateReplacements.append(len(data[data['generalCondition'].str.lower() == rating]))
+
+table = tableHeader
+for index, row in data.iterrows():
+    if not pd.isnull(row['generalCondition']):
+        location = locations.loc[locations['locKey'] == row['locKey']]['names'].values[0]
+        table += tableRowTemplate.format(location, safeBlank(row['surfMin']), safeBlank(row['surfMax']), safeBlank(row['generalCondition'].lower()))
+
+templateReplacements.append(table)
+
+with open(sys.argv[3], 'r') as template:
+    templateHTML = template.read()
+    ndx = 0
+    for arg in templateReplacements:
+        templateHTML = templateHTML.replace('{' + str(ndx) + '}', str(arg))
+        ndx += 1
+
+    with open(sys.argv[4], 'w+') as output:
+        output.write(templateHTML);
+        
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>How is the Surf Today?</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/charts.css">
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+    </section>
+    <div class="row">
+      <div class="column" style="margin-top: 15%; text-align:center;">
+        <h1>How is the Surf Today?</h1>
+        <h6>Last updated at {0}</h>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <center>
+        <h5>Today's biggest surf is in {1} with a range of {3} to {4} feet.</h5>
+      </center>
+    </div>
+    <div class="row">
+      <center>
+        <h5>Today's average surf range is {5} to {6} feet.</h5>
+      </center>
+    </div>
+    <div class="row" class="chart">
+      <div id="dailySurfConditionGraph"><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+    <div class="row">
+      <table class="sortable">
+        {15}
+      </table>
+    </div>
+    <div class="row">
+        <hr />
+       This website was made by <a href="http://www.WilliamSchaller.com">William Schaller</a>. It uses <a href="http://www.surfline.com/home/index.cfm">Surfline's</a> api to gather data, <a href="https://pandas.pydata.org/">pandas</a> to analyze the data, and a combination of <a href="https://plot.ly/">plotly</a>, <a href="https://kryogenix.org/code/browser/sorttable/">sortable</a>, and <a href="http://getskeleton.com/">skeleton css</a> to render the web page. You can see all the code on <a href="https://github.com/Schallerwf/SurfAI">github</a>.
+    </div>
+    <br /><br /><br /><br /><br /><br />
+  </div>
+
+<script type="text/javascript">
+var dailyConditionsData = [
+  {
+    x: ['flat', 'very poor', 'poor', 'poor to fair', 'fair', 'fair to good','good','very good'],
+    y: [{7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}],
+    type: 'bar',
+  }
+];
+
+ var layout = {
+  title: 'Total Global Surf Conditions',
+}
+
+Plotly.newPlot('dailySurfConditionGraph', dailyConditionsData, layout);
+
+</script>
+<script src="js/sorttable.js"></script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
