@@ -58,9 +58,8 @@ for rating in ratings:
 
 table = tableHeader
 for index, row in data.iterrows():
-    if not pd.isnull(row['generalCondition']):
-        location = locations.loc[locations['locKey'] == row['locKey']]['names'].values[0]
-        table += tableRowTemplate.format(location, safeBlank(row['surfMin']), safeBlank(row['surfMax']), safeBlank(row['generalCondition'].lower()))
+    location = locations.loc[locations['locKey'] == row['locKey']]['names'].values[0]
+    table += tableRowTemplate.format(location, safeBlank(row['surfMin']), safeBlank(row['surfMax']), safeBlank(row['generalCondition']).lower())
 
 templateReplacements.append(table)
 
