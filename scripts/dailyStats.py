@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 import datetime
+import time
 
 def safeBlank(s):
     if pd.isnull(s):
@@ -11,7 +12,6 @@ def safeBlank(s):
 # the way surfline builds their links. 
 def linkFromLocKey(locKey):
     return ""
-
 
 tableHeader = """
 <tr> 

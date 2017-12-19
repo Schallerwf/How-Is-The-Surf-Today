@@ -9,7 +9,7 @@ from subprocess import call
 currentDirectory = os.path.dirname(os.path.realpath(__file__))
 
 now = time.time()
-nowString = str(now).replace('.', '_')
+nowString = time.strftime('%Y-%m-%d', time.localtime(now))
 
 repeatedSurfFieldnames = ['swell_period', 'swell_direction', 'swell_height']
 surfFieldNames = ['surf_max', 'surf_min']
@@ -95,44 +95,4 @@ for line in lines:
         continue
 
     with open(dataFileName, dataReadMode) as output:
-        output.write(data + '\n')    
-
-# For videos, use rewind clip
-# Morro
-# The morro bay cam is on starting 0800 and turns off at 2350
-# Has 4 days back of footage in 10 minute clips
-# http://camrewinds.cdn-surfline.com/morrobaynorthcam/morrobaynorthcam.1300.2017-11-14.mp4
-
-# Morro
-# 4:00pm 11/14 = http://cams.cdn-surfline.com/wsc-west/wc-morrobaynorthcam.stream/media-unpeu06n2_1100.ts 
-# 9:23pm 11/14 = http://cams.cdn-surfline.com/wsc-west/wc-morrobaynorthcam.stream/media-unpeu06n2_2619.ts
-
-# Pipeline
-# 9:26pm 11/14 = /media-ucej6su04_2634.ts
-
-'''
-TODO: Download Webcam footage and train CNN 
-v = urllib2.urlopen("http://cams.cdn-surfline.com/wsc-west/wc-morrobaynorthcam.stream/media-unpeu06n2_2662.ts").read()
-
-now = str(time.time()).replace('.','_')
-
-vName = '{0}.ts'.format(now)
-f = open('videos/{0}'.format(vName), 'w')
-f.write(v)
-f.close()
-
-call(["ffmpeg", "-i", 'videos/{0}'.format(vName), "-vf", "fps=1", "images/{0}_%d.png".format(vName)])
-
-
-locKey = 4193 # Morro
-
-response = requests.get('http://api.surfline.com/v1/forecasts/'+str(locKey)+'?resources=surf,analysis&days=1&getAllSpots=false&units=e&interpolate=false&showOptimal=false',verify=True)
-info = response.json()
-print info
-s = stripHtmlTags(info['Analysis']['short_term_forecast'])
-#s = info['Analysis']['generalCondition'][0] + '\n''
-#s = info['Analysis']['surfRange'][0] + '\n'
-#s = info['Analysis']['surfMin'][0] + '\n
-#s = info['Analysis']['surfMax'][0] + '\n
-
-print s'''
+        output.write(data + '\n') 

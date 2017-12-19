@@ -6,8 +6,6 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>How is the Surf Today?</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -51,9 +49,11 @@
       <div id="dailySurfConditionGraph"><!-- Plotly chart will be drawn inside this DIV --></div>
     </div>
     <div class="row">
-      <table class="sortable">
-        {15}
-      </table>
+      <center>
+        <table class="sortable">
+          {15}
+        </table>
+      </center>
     </div>
     <div class="row">
         <hr />
