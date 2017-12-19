@@ -83,7 +83,7 @@ for line in lines:
         continue
 
     dataReadMode = 'a'
-    dataFileName = currentDirectory + '/data/' + nowString + 'surfData.csv'
+    dataFileName = currentDirectory + '/data/' + nowString + '_surfData.csv'
 
     if not os.path.isfile(dataFileName):
         dataReadMode = 'w+'
