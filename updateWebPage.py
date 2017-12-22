@@ -18,5 +18,6 @@ call(["python", "scripts/dailyStats.py", "data/"+today+"_surfData.csv", "txt/val
 
 # Add, commit, and push index file.
 call(["git", "add", "how-is-the-surf-today.html"])
+call(["git", "add", "data/"+today+"_surfData.csv"])
 call(["git", "commit", "-m" "Automated commit updating index.html with todays surf report."])
 call(["./push.exp"])
