@@ -1,1 +1,1 @@
-http://williamschaller.com/SurfAI/how-is-the-surf-today.html
+http://williamschaller.com/How-Is-The-Surf-Today/how-is-the-surf-today.html
